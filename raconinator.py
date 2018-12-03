@@ -5,7 +5,7 @@ import os
 import sys
 
 # Version
-_version_ = "0.1"
+_version_ = "0.1.1"
 
 # Argparse argument setup
 parser = argparse.ArgumentParser(description="Hands free iterative polishing of long read assemblies with Racon")
@@ -125,7 +125,7 @@ roundend()
 # Exit if n = 1
 if args.number == 1:
     goodbye()
-    sys.exit(1)
+    sys.exit(0)
 
 # Round Two
 print(colours.bold)
@@ -154,6 +154,7 @@ with open(map_target, "wb") as outfile:
         print('')
         print('Exiting...', colours.term)
 # Racon
+print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
 subprocess.call(['racon', reads, map_target, fasta_one, fasta_two])
 print('')
@@ -166,7 +167,7 @@ roundend()
 # Exit if n = 2
 if args.number == 2:
     goodbye()
-    sys.exit(1)
+    sys.exit(0)
 
 # Round Three
 print(colours.bold)
@@ -195,6 +196,7 @@ with open(map_target, "wb") as outfile:
         print('')
         print('Exiting...', colours.term)
 # Racon
+print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
 subprocess.call(['racon', reads, map_target, fasta_two, fasta_three])
 print('')
@@ -207,7 +209,7 @@ roundend()
 # Exit if n = 3
 if args.number == 3:
     goodbye()
-    sys.exit(1)
+    sys.exit(0)
 
 # Round Four
 print(colours.bold)
@@ -236,6 +238,7 @@ with open(map_target, "wb") as outfile:
         print('')
         print('Exiting...', colours.term)
 # Racon
+print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
 subprocess.call(['racon', reads, map_target, fasta_three, fasta_four])
 print('')
@@ -248,7 +251,7 @@ roundend()
 # Exit if n = 4
 if args.number == 4:
     goodbye()
-    sys.exit(1)
+    sys.exit(0)
 
 # Round Five
 print(colours.bold)
@@ -277,6 +280,7 @@ with open(map_target, "wb") as outfile:
         print('')
         print('Exiting...', colours.term)
 # Racon
+print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
 subprocess.call(['racon', reads, map_target, fasta_four, fasta_five])
 print('')
@@ -288,4 +292,4 @@ roundend()
 
 # Exit
 goodbye()
-sys.exit(1)
+sys.exit(0)
