@@ -5,7 +5,7 @@ import os
 import sys
 
 # Version
-_version_ = "0.1.1"
+_version_ = "0.2"
 
 # Argparse argument setup
 parser = argparse.ArgumentParser(description="Hands free iterative polishing of long read assemblies with Racon")
@@ -114,7 +114,8 @@ with open(map_target, "wb") as outfile:
 # Racon
 print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
-subprocess.call(['racon', reads, map_target, fasta_in, fasta_one])
+f1 = open(fasta_one,"w")
+subprocess.call(['racon', '-t', '14', reads, map_target, fasta_in], stdout=f1)
 print('')
 print(colours.bold, colours.blue,'Done!', colours.term)
 print('')
@@ -156,7 +157,8 @@ with open(map_target, "wb") as outfile:
 # Racon
 print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
-subprocess.call(['racon', reads, map_target, fasta_one, fasta_two])
+f2 = open(fasta_two,"w")
+subprocess.call(['racon', '-t', '14', reads, map_target, fasta_one], stdout=f2)
 print('')
 print(colours.bold, colours.blue,'Done!', colours.term)
 print('')
@@ -198,7 +200,8 @@ with open(map_target, "wb") as outfile:
 # Racon
 print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
-subprocess.call(['racon', reads, map_target, fasta_two, fasta_three])
+f3 = open(fasta_three,"w")
+subprocess.call(['racon', '-t', '14', reads, map_target, fasta_two], stdout=f3)
 print('')
 print(colours.bold, colours.blue,'Done!', colours.term)
 print('')
@@ -240,7 +243,8 @@ with open(map_target, "wb") as outfile:
 # Racon
 print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
-subprocess.call(['racon', reads, map_target, fasta_three, fasta_four])
+f4 = open(fasta_four,"w")
+subprocess.call(['racon', '-t', '14', reads, map_target, fasta_three], stdout=f4)
 print('')
 print(colours.bold, colours.blue,'Done!', colours.term)
 print('')
@@ -282,7 +286,8 @@ with open(map_target, "wb") as outfile:
 # Racon
 print(colours.invoking)
 print('Polishing assembly with Racon...', colours.term)
-subprocess.call(['racon', reads, map_target, fasta_four, fasta_five])
+f5 = open(fasta_five,"w")
+subprocess.call(['racon', '-t', '14', reads, map_target, fasta_four], stdout=f5)
 print('')
 print(colours.bold, colours.blue,'Done!', colours.term)
 print('')
